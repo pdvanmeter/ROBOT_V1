@@ -1,0 +1,23 @@
+Kinematics can be devided into two parts, Forward and inverse kinematics.
+
+Forward kinematecs takes a set of actuations, Js, and finds the tool or flange 
+coordinates in the room frame. 
+
+Inverse kinematics takes the room coordinates with or without an orientation
+and returns a set of Js that will produce the desired pose (position and orientation
+combination).
+
+There are two ways to do inverse kinematics. 
+    
+    First is using an anylitic solution.
+    This is tricky to find, but the functions that end in Ana use this technique.
+    The anylitic solutions return all 8 actuations that bring about the desired pose.
+    However often some or all of these are out of the robot's joint space. 
+    
+    Second is the numeric solution
+    When the robot parameters are not perfect and there are slight differences
+    due to the calibration of the robot, the anylitic solution will no longer
+    yield the correct answer. But it does give a very good initial guess. This 
+    can then be fed into the numeric method to achieve the desired solution.
+    
+    

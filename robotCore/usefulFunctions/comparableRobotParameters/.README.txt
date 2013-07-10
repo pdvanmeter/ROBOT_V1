@@ -1,0 +1,3 @@
+These parameters come from a paper about the calibration of an RX 130 Robot.
+"An Automated Method to Calibrate Industrial Robots UIsing a Virtual Closed Kinematic Chain"
+by ChandraSekhar Gatla et al.

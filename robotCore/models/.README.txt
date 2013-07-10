@@ -1,0 +1,4 @@
+the STL files contain the environment file made by hand and other cad models. 
+findAccTransform is a script that can be used to find the transformation from stl file objects (like plates and tools).
+the modles of the bread board or any tool should have the first returned value as 4x4 transform to the next frame.
+modelRobot however returns the DH parameters of the robot.

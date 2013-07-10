@@ -1,0 +1,8 @@
+Preparation:
+ mex 'C:\Users\wberry\Documents\MATLAB\collisionDetector\isect.c';
+
+Strategy:
+ 1. Get the Staubli-provided cad files into matlab as a triangle mesh.
+ 2. Simulate any actuation using the DH parameters and the correct pivot for each joint.
+  . The correct choice of pivot is obvious from the way the model is divided.
+ 3. Check every possible pair of triangles for intersection using tri_tri_intersect. 

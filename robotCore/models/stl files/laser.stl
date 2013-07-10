@@ -1,0 +1,16 @@
+solid ascii
+ facet
+    outer loop
+      vertex 0 0 0
+      vertex 0 -3 1500
+      vertex 0 3 1500
+    endloop
+  endfacet
+facet
+    outer loop
+      vertex 0 0 0
+      vertex -3 0 1500
+      vertex 3 0 1500
+    endloop
+  endfacet
+endsolid

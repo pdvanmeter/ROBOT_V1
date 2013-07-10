@@ -1,0 +1,31 @@
+Notes on Statistical analysis of the inner (good) range of laser data
+By jrnatter
+
+On laserReadings1:
+
+I am estimating that the good range of data is from 65 to 145.
+The mean of this data is 4.0525 ticks/step/sequence.
+The calculated standard deviation is .42114 ticks/step/sequence.
+
+One trial was an obvious outlier; after its removal, the new parameters are as follows:
+The mean is 4.037053 ticks/step/sequence.
+The calculated standard deviation is .357714 ticks/step/sequence.
+
+Looking at the line graph again, it appears that 10 data points should be cut off from the end of the data.
+With the new range being 65 to 135, the new parameters are as follows:
+The mean is 4.037454 ticks/step/sequence.
+The calculated standard deviation is .369691 ticks/step/sequence.
+
+Because there is a huge dip in the center, trials 100-104 will be cut out. The new parameters are as follows:
+The mean is 4.083892 ticks/step/sequence.
+The calculated standard deviation is .065154 ticks/step/sequence.
+
+
+On laserReadings2:
+
+It appears that the only stretch of good data is from points 1-27.
+One series was an obvious outlier, so it was removed.
+With the cleaned-up data, the new parameters are as follows:
+The mean is 4.082315 ticks/step/sequence.
+The calculated standard deviation is .072167 ticks/step/sequence.
+
