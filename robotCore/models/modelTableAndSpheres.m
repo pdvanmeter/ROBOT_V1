@@ -21,9 +21,16 @@ sphereGrid = [  0     0     0       0       -165.1 -330.2   -330.2  -330.2  -330
                 0     254   508     762     762    762      508     254     0       0.00  ;
                 0.0   0.0   0.0     0.0     .127   .127     .127    .127    .127    .127  ;
                 1     1     1       1       1      1        1       1       1       1    ];
-sphereOrigin = [1000.7466; -318.16; 900];
-tableOrigin = [1019.80,-708.16,344.4];
-tableYPR = [0,-pi/2,0];             % YPR relative flat position
+
+% Vertical table
+%sphereOrigin = [1050.7466; -318.16; 1244];
+%tableOrigin = [1069.80,-708.16,688.4];
+%tableYPR = [0,-pi/2,0];
+
+% Horizontal table
+sphereOrigin = [1092.2; -318.16; 133.35];
+tableOrigin = [533.4,-711.2,117.475];
+tableYPR = [0,0,0];             % YPR relative flat position
     
 %sphereOrigin = [1005,-318.5,900];
 %tableOrigin = [1024.05,-712.3,341.2];

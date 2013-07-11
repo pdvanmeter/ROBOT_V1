@@ -24,3 +24,13 @@ xlabel('Pose Number')
 ylabel('Count')
 colormap jet
 grid on
+
+% Create a matrix of only good actuations
+i = 1;
+goodJset = zeros(length(find(~failures)),9);
+for n = 1:length(failures)
+    if(~failures(n))
+        goodJset(i,1:9) = testJset(n,1:9);
+        i = i + 1;
+    end
+end
