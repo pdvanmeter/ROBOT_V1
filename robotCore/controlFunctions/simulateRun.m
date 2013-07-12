@@ -1,4 +1,4 @@
-function robotCrashes = simiulateRun( model, jSet )
+function robotCrashes = simulateRun( model, jSet )
 %SIMIULATERUN Function to simulate the full run as moveProtected would
 %perform it.
 %   Incrementally performs the entire run for each set of actuations

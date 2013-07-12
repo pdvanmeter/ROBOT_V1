@@ -28,12 +28,11 @@ sphereGrid = [  0     0     0       0       -165.1 -330.2   -330.2  -330.2  -330
 %tableYPR = [0,-pi/2,0];
 
 % Horizontal table
-sphereOrigin = [1092.2; -318.16; 133.35];
+sphereOrigin = [1088.4; -315.0; 130.6];
 tableOrigin = [533.4,-711.2,117.475];
 tableYPR = [0,0,0];             % YPR relative flat position
     
-%sphereOrigin = [1005,-318.5,900];
-%tableOrigin = [1024.05,-712.3,341.2];
+%sphereOrigin = [1088.4; -315.0; 130.6];
 
 
 end

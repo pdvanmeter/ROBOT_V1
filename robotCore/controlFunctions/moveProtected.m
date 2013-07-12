@@ -1,4 +1,4 @@
-function results = moveProtected( robot, model, jSet, action )
+function [results robotCrashes] = moveProtected( robot, model, jSet, action )
 %MOVEPROTECTED Function to integrate crash protection and movement.
 %   This function will take a set of actuations (jSet) and move the robot
 %   to these points in a protected fashion. The crash protection will be
@@ -42,7 +42,7 @@ for n = 1:size(jSet,1)
     end
     % If we have reached a target, perform the action (if there is one)
     if exist('action','var')
-        results(n,:) = action(robot);
+        results(n,:) = action(robot)        % Unsupress to show results/progress
     end
 end
 
