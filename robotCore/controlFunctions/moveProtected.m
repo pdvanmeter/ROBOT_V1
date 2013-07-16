@@ -42,7 +42,9 @@ for n = 1:size(jSet,1)
     end
     % If we have reached a target, perform the action (if there is one)
     if exist('action','var')
-        results(n,:) = action(robot)        % Unsupress to show results/progress
+        results(n,:) = action(robot);        % Unsupress to show results/progress
+    else
+        results = 0;
     end
 end
 
