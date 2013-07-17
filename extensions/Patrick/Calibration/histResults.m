@@ -30,7 +30,7 @@ i = 1;
 goodJset = zeros(length(find(~failures)),9);
 for n = 1:length(failures)
     if(~failures(n))
-        goodJset(i,1:9) = testJset(n,1:9);
+        goodJset(i,1:9) = AdjustedJs(n,1:9);
         i = i + 1;
     end
 end

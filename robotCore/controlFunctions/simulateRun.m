@@ -1,4 +1,4 @@
-function robotCrashes = simulateRun( model, jSet )
+function [robotCrashes preCrashJ] = simulateRun( model, jSet )
 %SIMIULATERUN Function to simulate the full run as moveProtected would
 %perform it.
 %   Incrementally performs the entire run for each set of actuations
@@ -7,6 +7,7 @@ function robotCrashes = simulateRun( model, jSet )
 
 % The resolution of each joint, used to calculate keyframes
 Jres = deg2rad([6.79493E-04 6.790161E-04 8.69751E-04 8.987652E-04 1.171112E-03 2.74582E-03]);
+preCrashJ = [-1, -1, -1, -1, -1, -1];
 robotCrashes = 0;
 
 for n = 1:size(jSet,1)
@@ -27,6 +28,7 @@ for n = 1:size(jSet,1)
         currentJ = currentJ + diff;
         robotCrashes = model.setJ(currentJ);
         if(robotCrashes)
+            preCrashJ = currentJ - diff;
             break;
         end
     end

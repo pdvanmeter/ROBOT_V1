@@ -14,8 +14,8 @@ function [ robotCrashes ] = moveCarefully( robot, model, actuationGoal )
 
 %   Generate a jSet which will move in the desired order, then pass it
 %   along to moveProtected.
-%currentJ = robot.whereJ();             % Full Mode
-currentJ = model.J;                     % Model Only Model
+currentJ = robot.whereJ();             % Full Mode
+%currentJ = model.J;                     % Model Only Model
 index = 1;
 
 if (currentJ(2) - actuationGoal(2)) ~= 0
@@ -65,7 +65,7 @@ if index == 1
     newSet = currentJ;
 end
 
-%robotCrashes = moveProtected(robot, model, newSet);    % Full Mode
-robotCrashes = simulateRun(model, newSet);              % Model Only Mode
+robotCrashes = moveProtected(robot, model, newSet);    % Full Mode
+%robotCrashes = simulateRun(model, newSet);              % Model Only Mode
 
 end

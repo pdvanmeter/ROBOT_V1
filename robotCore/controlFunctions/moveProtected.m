@@ -38,13 +38,14 @@ for n = 1:size(jSet,1)
     % Check for failure
     if(robotCrashes)
         fprintf('Error! Simulation has crashed. Robot movement has been halted for safety.\n');
+        results = [-1,-1,-1,-1,-1,-1,-1];
         break;
     end
     % If we have reached a target, perform the action (if there is one)
     if exist('action','var')
         results(n,:) = action(robot);        % Unsupress to show results/progress
     else
-        results = 0;
+        results = [0,0,0,0,0,0,0];
     end
 end
 

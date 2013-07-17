@@ -155,7 +155,7 @@ classdef geometricModel < handle
                     if adjacencyMatrix(n,m) == 0
                         if(obj.boundingBoxArray(n).intersects(obj.boundingBoxArray(m)))
                             % Troubleshooting
-                            fprintf('Bounding box collision at (%d,%d)\n',n,m);
+                            %fprintf('Bounding box collision at (%d,%d)\n',n,m);
                             if(obj.componentArray(n).intersects(obj.componentArray(m)))
                                 fprintf('Model collision at (%d,%d)\n',n,m);
                                 collisionMatrix(n,m) = 1;
