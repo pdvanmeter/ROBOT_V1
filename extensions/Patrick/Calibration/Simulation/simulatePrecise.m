@@ -1,6 +1,6 @@
-function [robotCrashes preCrashJ] = simulateRun( model, jSet )
-%SIMIULATERUN Function to simulate the full run as moveProtected would
-%perform it.
+function [ robotCrashes preCrashJ ] = simulatePrecise( realModel, jSet )
+%SIMIULATEPRECISE Function to simulate the full run as moveProtected would
+%perform it. Uses a much larger number of keyframes than simulateRun.
 %   Incrementally performs the entire run for each set of actuations
 %   contained within jSet. This should be identical to how moveProtected
 %   calculates the run.
@@ -12,13 +12,11 @@ robotCrashes = 0;
 
 for n = 1:size(jSet,1)
     % Get current position
-    currentJ = model.J;
+    currentJ = realModel.J;
     % Calculate keyframes, adjusting for very small and large movements
     keyframes = round(abs(max((jSet(n,:) - currentJ)./Jres))/1000);         % Rounds to nearest integer
-    if keyframes < 1        % Tiny movement
-        keyframes = 1;                                                      % Ensure at least one frame
-    elseif keyframes > 20   % Big movement, takes too long
-        keyframes = round(abs(max((jSet(n,:) - currentJ)./Jres))/3000);    % Reduce number of steps
+    if keyframes < 15   % Want small movements for accuracy
+        keyframes = 15;    % Ensure at least 15
     end
     diff = (jSet(n,:)-currentJ)/keyframes;
     
@@ -26,7 +24,7 @@ for n = 1:size(jSet,1)
     % the geometricModel moveJ().
     for t = 1:keyframes
         currentJ = currentJ + diff;
-        robotCrashes = model.setJ(currentJ);
+        robotCrashes = realModel.setJ(currentJ);
         if(robotCrashes)
             preCrashJ = currentJ - diff;
             break;
@@ -34,7 +32,7 @@ for n = 1:size(jSet,1)
     end
     % Check for failure
     if(robotCrashes)
-        fprintf('Error! Simulation has crashed. This set is not safe for robot use.\n');
+        fprintf('Error! Simulation has crashed. The model has failed.\n');
         break;
     end
 end

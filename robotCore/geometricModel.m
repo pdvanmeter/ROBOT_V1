@@ -79,7 +79,7 @@ classdef geometricModel < handle
             [toolModel transTool2Flng] = modelToolMount();
             obj.toolPars = toolModel;
             %obj.componentArray(9) = meshModel('modelDrill.stl',obj.world2Link(:,:,6)*transTool2Flng);
-            obj.componentArray(9) = meshModel('tool_mount.stl',obj.world2Link(:,:,6)*transTool2Flng);
+            obj.componentArray(9) = meshModel('tool_mount_thick.stl',obj.world2Link(:,:,6)*transTool2Flng);
             obj.pose = transformRobot(modelRobot(), obj.J)*transformTool(obj.toolPars);
             obj.poseFl = transformRobot(modelRobot(), obj.J);
             obj.boundingBoxArray(9) = obj.componentArray(9).getConformalBoundingBoxes(6);
@@ -212,7 +212,7 @@ classdef geometricModel < handle
             robotCrashes=0;
             laserObscured=0;
             Jres = deg2rad([6.79493E-04 6.790161E-04 8.69751E-04 8.987652E-04 1.171112E-03 2.74582E-03]);
-            keyframes=abs(max((endJ-startJ)./Jres))/1000
+            keyframes = max(abs((endJ-startJ)./Jres))/1000;
             diff = (endJ-startJ)/keyframes;
             for t=1:keyframes,
                 startJ=startJ+diff;

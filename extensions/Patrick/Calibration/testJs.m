@@ -1,4 +1,4 @@
-function [ failedActuations results ] = testJs( model, jSet )
+function [ failedActuations testResults ] = testJs( model, jSet )
 %TESTJS Runs a simple crash protection simulation on a set of actuations.
 %   Returns a vector with one entry per actuation. A 1 in that position
 %   means that the actuation has failed, and a 0 means that it is
@@ -13,24 +13,24 @@ function [ failedActuations results ] = testJs( model, jSet )
 
 % TODO: Modify to use moveJ once better bounding boxes are implemented.
 failedActuations = zeros(1,length(jSet));
-results = zeros(length(jSet),11);
+testResults = zeros(length(jSet),11);
 
 for n = 1:length(jSet)
     fprintf('Now testing actuation %d on sphere %d \n', n, jSet(n,8));
     [crashes collisionMatrix] = model.setJ(jSet(n,1:6));
     failedActuations(n) = crashes;
     % Populate the results matrix
-    results(n,1) = crashes;             % Successful actuation?
-    results(n,2:7) = jSet(n,1:6);       % Joint actuations
-    results(n,8) = jSet(n,7);           % Pose number
-    results(n,9) = jSet(n,8);           % Sphere number
+    testResults(n,1) = crashes;             % Successful actuation?
+    testResults(n,2:7) = jSet(n,1:6);       % Joint actuations
+    testResults(n,8) = jSet(n,7);           % Pose number
+    testResults(n,9) = jSet(n,8);           % Sphere number
     if ~crashes
-        results(n,10) = 0;
-        results(n,11) = 0;
+        testResults(n,10) = 0;
+        testResults(n,11) = 0;
     else
         [x y] = find(collisionMatrix);
-        results(n,10) = max(x);          % Due to use of max, there may be additional collisions
-        results(n,11) = max(y);
+        testResults(n,10) = max(x);          % Due to use of max, there may be additional collisions
+        testResults(n,11) = max(y);
     end
 end
 
@@ -46,6 +46,6 @@ else
     end
     fprintf('\n');
 end
-
+%fprintf();
 end
 

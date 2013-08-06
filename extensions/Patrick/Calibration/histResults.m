@@ -7,9 +7,9 @@
 binArray = zeros(8,2);
             
 % Sort results into bins by pose
-for n = 1:length(results)
-    bin = results(n,8);
-    if ~results(n,1)
+for n = 1:length(testResults)
+    bin = testResults(n,8);
+    if ~testResults(n,1)
         binArray(bin,1) = binArray(bin,1) + 1;   % Increment Sucess Count
     else
         binArray(bin,2) = binArray(bin,2) + 1;   % Increment Failure Count
@@ -30,7 +30,7 @@ i = 1;
 goodJset = zeros(length(find(~failures)),9);
 for n = 1:length(failures)
     if(~failures(n))
-        goodJset(i,1:9) = AdjustedJs(n,1:9);
+        goodJset(i,1:9) = JsetToo(n,1:9);
         i = i + 1;
     end
 end
