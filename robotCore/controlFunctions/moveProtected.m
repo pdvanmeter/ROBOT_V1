@@ -22,7 +22,7 @@ for n = 1:size(jSet,1)
     if keyframes < 1        % Tiny movement, needs at least one frame
         keyframes = 1;                                                      % Ensure at least one frame
     elseif keyframes > 20   % Big movement, requires less precision
-        keyframes = round(max(abs((jSet(n,:) - currentJ)./Jres))/3000);    % Reduce number of steps
+        keyframes = round(max(abs((jSet(n,:) - currentJ)./Jres))/4000);    % Reduce number of steps
     end
     diff = (jSet(n,:)-currentJ)/keyframes;
     
